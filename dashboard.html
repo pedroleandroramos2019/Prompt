@@ -262,6 +262,7 @@ body{font-family:"Segoe UI Variable","Segoe UI",system-ui,-apple-system,sans-ser
   border:1px solid var(--glass-brd);font-size:11.5px;line-height:1.65;color:var(--ink-3)}
 .ref-note a{color:var(--teal);font-weight:700;text-decoration:none}
 .ref-note a:hover{text-decoration:underline}
+.ref-note p+p{margin-top:8px;padding-top:8px;border-top:1px solid var(--glass-brd)}
 @media(max-width:840px){.grid-2{grid-template-columns:1fr}.header{flex-direction:column;align-items:flex-start}.header-actions{align-self:flex-end}}
 .rm-card{transition:transform .3s var(--ease-premium),box-shadow .3s var(--ease-premium),border-color .3s ease}
 .rm-item:hover .rm-card{transform:translateX(4px);box-shadow:var(--shadow-lg);
@@ -599,9 +600,16 @@ body{font-family:"Segoe UI Variable","Segoe UI",system-ui,-apple-system,sans-ser
 <div class="kpi" style="--acc:var(--teal)"><div class="k-ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7.5V12l3.5 2"></path></svg></div><div class="k-val" data-count="106">0</div><div class="k-lbl">Horas Economizadas por Mês</div><div class="k-sub">Soma de dashboards, análises, planilhas e relatórios</div></div>
 <div class="kpi" style="--acc:var(--blue)"><div class="k-ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><rect height="16" rx="2" width="18" x="3" y="5"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg></div><div class="k-val" data-count="1272">0</div><div class="k-lbl">Horas Economizadas por Ano</div><div class="k-sub">106h por mês × 12 meses</div></div>
 <div class="kpi" style="--acc:var(--pos)"><div class="k-ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"></path><path d="M15 7h6v6"></path></svg></div><div class="k-val" data-count="159">0</div><div class="k-lbl">Dias Úteis Equivalentes/Ano</div><div class="k-sub">≈ 7,6 meses de um profissional em tempo integral</div></div>
+<div class="kpi" style="--acc:var(--warn)"><div class="k-ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><circle cx="9" cy="8" r="3.5"></circle><path d="M2 21c0-3.5 3-6 7-6s7 2.5 7 6"></path><circle cx="18" cy="7" r="2.5"></circle><path d="M17 15c3 .3 5 2.5 5 6"></path></svg></div><div class="k-val" data-count="151" data-decimal="1">0</div><div class="k-lbl">Horas por Colaborador/Mês</div><div class="k-sub">≈182h/ano · média entre 7 pessoas que usam IA no dia a dia</div></div>
 </div>
-<div class="card chart-card"><h3><svg fill="none" height="16" stroke="var(--teal)" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="9" width="4" x="3" y="12"></rect><rect height="14" width="4" x="10" y="7"></rect><rect height="18" width="4" x="17" y="3"></rect></svg>Economia de Tempo por Mês, por Atividade (horas)</h3><div class="hint">Quanto cada tipo de entrega contribui para as 106h/mês economizadas</div><div class="chart-box sm"><canvas id="chartEconomiaMensal"></canvas></div></div>
-<p class="ref-note">Referência externa, apenas para contexto — não é a base do cálculo acima, que usa os dados internos por entrega: o <a href="https://www.microsoft.com/en-us/worklab/work-trend-index/will-ai-fix-work" rel="noopener noreferrer" target="_blank">Work Trend Index 2024 da Microsoft e LinkedIn</a> registra economia média de ~1h/dia por usuário de IA (até 2h/dia entre os que mais usam); a <a href="https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier" rel="noopener noreferrer" target="_blank">McKinsey</a> estima que as tecnologias atuais de IA podem automatizar 60-70% do tempo hoje gasto em atividades de trabalho.</p>
+<div class="grid-2">
+<div class="card chart-card"><h3><svg fill="none" height="16" stroke="var(--teal)" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="9" width="4" x="3" y="12"></rect><rect height="14" width="4" x="10" y="7"></rect><rect height="18" width="4" x="17" y="3"></rect></svg>Economia de Tempo por Mês · Total da Equipe (horas)</h3><div class="hint">Quanto cada tipo de entrega contribui para as 106h/mês economizadas</div><div class="chart-box sm"><canvas id="chartEconomiaMensal"></canvas></div></div>
+<div class="card chart-card"><h3><svg fill="none" height="16" stroke="var(--teal)" stroke-width="2" viewbox="0 0 24 24" width="16"><circle cx="9" cy="8" r="3.5"></circle><path d="M2 21c0-3.5 3-6 7-6s7 2.5 7 6"></path><circle cx="18" cy="7" r="2.5"></circle><path d="M17 15c3 .3 5 2.5 5 6"></path></svg>Economia de Tempo por Colaborador (horas/mês)</h3><div class="hint">Média entre os 7 colaboradores do portfólio · não é uma medição individual</div><div class="chart-box sm"><canvas id="chartEconomiaColaborador"></canvas></div></div>
+</div>
+<div class="ref-note">
+<p>Base do cálculo por colaborador: 106h/mês ÷ 7 pessoas com dashboards no portfólio (Zhara Reinaldo, Ramon Fortes, Henrique Coutinho, Débora, Jaqueline, Mariana e Ananda Areco) — uma média do grupo, não uma medição individual de cada pessoa.</p>
+<p>Referência externa, apenas para contexto — não é a base do cálculo acima, que usa os dados internos por entrega: o <a href="https://www.microsoft.com/en-us/worklab/work-trend-index/will-ai-fix-work" rel="noopener noreferrer" target="_blank">Work Trend Index 2024 da Microsoft e LinkedIn</a> registra economia média de ~1h/dia por usuário de IA (até 2h/dia entre os que mais usam); a <a href="https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier" rel="noopener noreferrer" target="_blank">McKinsey</a> estima que as tecnologias atuais de IA podem automatizar 60-70% do tempo hoje gasto em atividades de trabalho.</p>
+</div>
 </section> <section class="panel" id="roadmap">
 <div class="section-head"><h2><span class="bar"></span>Roadmap 2027</h2><p>Próximos passos para consolidar a plataforma de indicadores com IA.</p></div>
 <div class="roadmap"><span class="rm-year">VISÃO 2027</span><div class="rm-track" id="rmTrack"></div></div>
@@ -806,6 +814,7 @@ function drawFallbackProd(){
   drawBarFallback('chartAtividades',['Dashboards','Análises','Planilhas','Relatórios'],[{values:[12,6,8,4]},{values:[1,.5,1.5,.5]}],{max:14,suffix:'h',colors:[cssVar('--neg')||'#C9253D',cssVar('--pos')||'#16803C']});
   drawBarFallback('chartUso',['Mínimo','Típico','Máximo'],[{values:[2,3,4]}],{max:5,suffix:'h',colors:[cssVar('--teal')||'#3B4AA6']});
   drawSingleHBarFallback('chartEconomiaMensal',['Análises','Planilhas','Dashboards','Relatórios'],[44,26,22,14],{max:44,suffix:'h'});
+  drawSingleHBarFallback('chartEconomiaColaborador',['Análises','Planilhas','Dashboards','Relatórios'],[6.3,3.7,3.1,2],{max:6.3,suffix:'h',color:cssVar('--warn')||'#D59616'});
   built.prod=true;
 }
 
@@ -862,6 +871,10 @@ function buildProd(){
     data:{labels:['Análises','Planilhas','Dashboards','Relatórios'],datasets:[{data:[44,26,22,14],backgroundColor:barGrad('--teal'),borderRadius:8,barThickness:26}]},
     options:{animation:animOpt,indexAxis:'y',plugins:{legend:{display:false},datalabels:{anchor:'end',align:'right',color:ink,font:{weight:850,size:13},formatter:v=>v+'h'},tooltip:{...tt(),callbacks:{label:c=>' '+c.label+': '+c.parsed.x+' horas/mês'}}},
       scales:{x:{beginAtZero:true,max:50,grid:{color:gridColor()},ticks:{color:ink2,font:baseFont(),callback:v=>v+'h'}},y:{grid:{display:false},ticks:{color:ink,font:{...baseFont(),weight:700}}}},responsive:true,maintainAspectRatio:false}});
+  charts.economiaColaborador=createChart(document.getElementById('chartEconomiaColaborador'),{type:'bar',
+    data:{labels:['Análises','Planilhas','Dashboards','Relatórios'],datasets:[{data:[6.3,3.7,3.1,2],backgroundColor:barGrad('--warn'),borderRadius:8,barThickness:26}]},
+    options:{animation:animOpt,indexAxis:'y',plugins:{legend:{display:false},datalabels:{anchor:'end',align:'right',color:ink,font:{weight:850,size:13},formatter:v=>(v+'').replace('.',',')+'h'},tooltip:{...tt(),callbacks:{label:c=>' '+c.label+': '+(c.parsed.x+'').replace('.',',')+' horas/mês, em média por colaborador'}}},
+      scales:{x:{beginAtZero:true,max:7,grid:{color:gridColor()},ticks:{color:ink2,font:baseFont(),callback:v=>v+'h'}},y:{grid:{display:false},ticks:{color:ink,font:{...baseFont(),weight:700}}}},responsive:true,maintainAspectRatio:false}});
   built.prod=true;
 }
 function ensureCharts(id){if(id==='resumo'&&!built.resumo)buildResumo();if(id==='produtividade'&&!built.prod)buildProd();}
